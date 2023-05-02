@@ -1,0 +1,32 @@
+{% extends 'curriculums/base.html' %}
+
+{% block title %} หลักสูตร {% endblock title %}
+
+{% block content %}
+<h2>หลักสูตรทั้งหมด</h2>
+
+<div class="container mt-3">       
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>หลักสูตร</th>
+          <th>ระดับ</th>
+          <th>คณะ</th>
+          <th>วันอนุมัติหลักสูตร</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        {% for c in all_program %}
+        <tr>
+          <td>{{c.name}} สาขาวิชา{{c.program}}</td>
+          <td>{{c.degree}}</td>
+          <td>{{c.faculty}}</td>
+          <td>{{c.approve_at}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock content %}
