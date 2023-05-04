@@ -24,7 +24,7 @@ class Curriculum(models.Model):
     program = models.CharField(max_length=100)
     degree = models.CharField(max_length=40, choices=curriculum_degree,default='ปริญญาตรี')
     faculty = models.ForeignKey(Faculty, on_delete=models.CASCADE)
-    approve_at = models.DateField(auto_now=True)
+    approve_at = models.DateField()
 
     def __str__(self):
         return self.name

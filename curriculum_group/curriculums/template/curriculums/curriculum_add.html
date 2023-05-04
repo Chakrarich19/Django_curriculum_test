@@ -1,0 +1,55 @@
+{% extends 'curriculums/base.html' %}
+
+{% block title %} หลักสูตร {% endblock title %}
+
+{% block content %}
+<div class="container mt-3">
+  <h2>เพิ่มหลักสูตร</h2>
+  <form method="POST">
+
+    {% csrf_token %}
+    
+    <div class="mb-3 mt-3">
+      <label for="code">รหัสหลักสูตร</label>
+      <input type="text" class="form-control" id="code" name="code">
+    </div>
+    
+    <div class="mb-3">
+      <label for="name">ชื่อหลักสูตร</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    
+    <div class="mb-3">
+      <label for="program">ชื่อสาขาวิชา</label>
+      <input type="text" class="form-control" id="program" name="program">
+    </div>
+  
+    <div class="mb-3"> 
+      <label for="degree" class="form-label">ระดับหลักสูตร</label>
+      <select class="form-select" id="degree" name="degree">
+        <option>ปริญญาตรี</option>
+        <option>ปริญญาโท</option>
+        <option>ปริญญาเอก</option>
+      </select>
+    </div>
+    
+    <div class="mb-3"> 
+      <label for="faculty">คณะ</label>   
+        <select class="form-select" id="faculty" name="faculty">
+          {% for f in all_faculty %}
+          <option>{{f.id}}</option>
+          {% endfor %}
+        </select>
+    </div>
+    
+    <div class="mb-3">
+      <label for="approve_at">วันที่อนุมัติหลักสูตร</label>
+      <input type="date" class="form-control" id="approve_at" name="approve_at">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  
+  </form>
+</div>
+
+{% endblock content %}
